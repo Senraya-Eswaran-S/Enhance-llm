@@ -17,12 +17,12 @@ chunks = splitter.split_documents(docs)
 print(f"Created {len(chunks)} chunks")
 
 
-print("Storing in ChromaDB...")
+
 embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001") 
 vectorstore = Chroma.from_documents(chunks, embeddings) 
 print("Stored!")
 
-print("Setting up QA chain...") 
+
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash") 
 qa_chain = RetrievalQA.from_chain_type(llm, retriever=vectorstore.as_retriever())
 
