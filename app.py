@@ -9,13 +9,9 @@ from langchain.chains import RetrievalQA
 os.environ["GOOGLE_API_KEY"] = "paste_your_key_here"
 
 
-print("Loading PDF...") 
 loader = PyPDFLoader("test.pdf") 
 docs = loader.load() 
-print(f"Loaded {len(docs)} pages")
-
-
-print("Splitting...") 
+print(f"Loaded {len(docs)} pages"print("Splitting...")
 splitter = RecursiveCharacterTextSplitter( chunk_size=1000, chunk_overlap=200 ) 
 chunks = splitter.split_documents(docs) 
 print(f"Created {len(chunks)} chunks")
